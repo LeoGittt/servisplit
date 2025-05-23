@@ -6,9 +6,10 @@ import type { ReactNode } from "react"
 interface AnimatedSectionProps {
   children: ReactNode
   className?: string
+  id?: string
 }
 
-export default function AnimatedSection({ children, className = "" }: AnimatedSectionProps) {
+export default function AnimatedSection({ children, className = "", id }: AnimatedSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -41,6 +42,7 @@ export default function AnimatedSection({ children, className = "" }: AnimatedSe
   return (
     <section
       ref={sectionRef}
+      id={id}
       className={`${className} transition-all duration-1000 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}

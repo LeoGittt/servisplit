@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { AirVent, Facebook, Instagram, Mail, MapPin, Phone, Twitter, Linkedin } from "lucide-react"
+import { AirVent, Mail, MapPin, Phone } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -18,36 +18,6 @@ export default function Footer() {
               Expertos en instalación, mantenimiento y reparación de aires acondicionados con la máxima calidad y
               garantía.
             </p>
-            <div className="flex gap-4">
-              <Link
-                href="#"
-                className="bg-blue-800/50 p-3 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-110"
-              >
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link
-                href="#"
-                className="bg-blue-800/50 p-3 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-110"
-              >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link
-                href="#"
-                className="bg-blue-800/50 p-3 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-110"
-              >
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link
-                href="#"
-                className="bg-blue-800/50 p-3 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-110"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-            </div>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-6">Enlaces Rápidos</h3>
@@ -78,11 +48,20 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#testimonios"
+                  href="#ventajas"
                   className="text-blue-200 hover:text-white transition-colors flex items-center gap-2"
                 >
                   <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
-                  <span>Testimonios</span>
+                  <span>Ventajas</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#detalles"
+                  className="text-blue-200 hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                  <span>Detalles</span>
                 </Link>
               </li>
               <li>
@@ -101,15 +80,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="h-6 w-6 text-blue-300 mt-0.5 flex-shrink-0" />
-                <span className="text-blue-200">Calle Principal 123, 28001 Madrid</span>
+                <span className="text-blue-200">Albardón, San Juan</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-6 w-6 text-blue-300 flex-shrink-0" />
-                <span className="text-blue-200">900 123 456</span>
+                <span className="text-blue-200">2644646434</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-6 w-6 text-blue-300 flex-shrink-0" />
-                <span className="text-blue-200">info@servisplit.com</span>
+                <span className="text-blue-200">marioamarfil25@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -130,6 +109,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-blue-800/50 mt-12 pt-8 text-center text-blue-300">
           <p>© {new Date().getFullYear()} Servisplit. Todos los derechos reservados.</p>
+          <p className="mt-2 text-sm">Creado por Leonel</p>
         </div>
       </div>
     </footer>
