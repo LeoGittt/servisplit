@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import {
   AirVent,
@@ -11,7 +12,15 @@ import {
   Wrench,
   MapPin,
   Mail,
+  Check,
+  UserCheck,
+  HeartHandshake,
+  Zap,
+  ShieldCheck,
+  Sparkles,
 } from "lucide-react";
+import Link from "next/link";
+import { useState, useEffect } from 'react';
 
 import { Button } from "@/components/ui/button";
 import {
@@ -38,118 +47,140 @@ export default function Home() {
         <Hero />
         
         {/* Services Section */}
-        <AnimatedSection id="servicios" className="relative py-24 bg-white">
-          {/* Decorative elements */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-r from-blue-100 to-transparent opacity-20 rounded-full mix-blend-multiply"></div>
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-l from-purple-100 to-transparent opacity-20 rounded-full mix-blend-multiply"></div>
-          </div>
-          <div className="container px-4 mx-auto">
-            {/* Header */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-2">
-                Nuestros Servicios
-              </h2>
-              <div className="w-24 h-1.5 mx-auto mt-6 rounded-full bg-gradient-to-r from-blue-400 to-blue-600" />
-              <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Soluciones integrales adaptadas a cada necesidad de climatización
-              </p>
+        <AnimatedSection id="servicios" className="relative py-28 bg-white overflow-hidden">
+  {/* Fondos decorativos mejorados */}
+  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-gradient-to-r from-blue-50/40 to-transparent rounded-full filter blur-[80px]"></div>
+    <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-gradient-to-l from-purple-50/40 to-transparent rounded-full filter blur-[80px]"></div>
+  </div>
+
+  <div className="container px-5 mx-auto relative z-10">
+    {/* Encabezado con más énfasis */}
+    <div className="text-center mb-20">
+      <span className="inline-block mb-3 text-sm font-semibold tracking-wider text-blue-600 uppercase">
+        Soluciones a medida
+      </span>
+      <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-gray-900 mb-4 leading-tight">
+        Nuestros <span className="relative whitespace-nowrap">
+          <span className="relative z-10">Servicios</span>
+          <span className="absolute bottom-2 left-0 w-full h-3 bg-blue-100/70 z-0"></span>
+        </span>
+      </h2>
+      <div className="w-32 h-1.5 mx-auto mt-6 rounded-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600" />
+      <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Soluciones integrales adaptadas a cada necesidad de climatización con la máxima eficiencia energética
+      </p>
+    </div>
+
+    {/* Tarjetas de servicios mejoradas */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto">
+      {/* Tarjeta 1 */}
+      <div className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="relative z-10">
+          <div className="flex items-center gap-5 mb-5">
+            <div className="p-4 rounded-xl bg-blue-50 text-blue-600 shadow-sm group-hover:bg-blue-100 group-hover:scale-105 transition-all duration-300">
+              <AirVent className="w-7 h-7" />
             </div>
-
-            {/* Service Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {/* Card 1 */}
-              <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-4 rounded-xl bg-blue-50 text-blue-600 shadow-sm group-hover:bg-blue-100 transition-all duration-300">
-                      <AirVent className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      Instalación Profesional
-                    </h3>
-                  </div>
-                  <p className="text-gray-600 mb-4">
-                    Instalación certificada de sistemas split, multisplit y centralizados con máxima eficiencia.
-                  </p>
-                  <ul className="space-y-2 text-gray-700">
-                    {[
-                      "✓ Configuración óptima del sistema",
-                      "✓ Pruebas de funcionamiento exhaustivas",
-                      "✓ Garantía en la instalación",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-4 rounded-xl bg-purple-50 text-purple-600 shadow-sm group-hover:bg-purple-100 transition-all duration-300">
-                      <Tool className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      Mantenimiento Preventivo
-                    </h3>
-                  </div>
-                  <p className="text-gray-600 mb-4">
-                    Programas de mantenimiento para maximizar la vida útil y eficiencia de tus equipos.
-                  </p>
-                  <ul className="space-y-2 text-gray-700">
-                    {[
-                      "✓ Limpieza profunda de componentes",
-                      "✓ Revisión de gas refrigerante",
-                      "✓ Optimización del rendimiento",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-4 rounded-xl bg-pink-50 text-pink-600 shadow-sm group-hover:bg-pink-100 transition-all duration-300">
-                      <Wrench className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      Reparación Especializada
-                    </h3>
-                  </div>
-                  <p className="text-gray-600 mb-4">
-                    Diagnóstico preciso y reparación de averías con repuestos originales y garantía.
-                  </p>
-                  <ul className="space-y-2 text-gray-700">
-                    {[
-                      "✓ Diagnóstico sin costo adicional",
-                      "✓ Reparación con técnicos certificados",
-                      "✓ Garantía en todas las reparaciones",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-pink-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <h3 className="text-xl lg:text-2xl font-semibold text-gray-900">
+              Instalación Profesional
+            </h3>
           </div>
-        </AnimatedSection>
+          <p className="text-gray-600 mb-5 text-lg leading-relaxed">
+            Sistemas split, multisplit y centralizados instalados con certificación oficial y máxima eficiencia energética.
+          </p>
+          <ul className="space-y-3 text-gray-700">
+            {[
+              "Configuración óptima del sistema",
+              "Pruebas de funcionamiento exhaustivas",
+              "Garantía extendida en la instalación"
+            ].map((item, i) => (
+              <li key={i} className="flex items-start">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-5 w-5 rounded-full bg-blue-100 text-blue-600">
+                    <Check className="h-3 w-3" />
+                  </div>
+                </div>
+                <span className="ml-3">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Tarjeta 2 */}
+      <div className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="relative z-10">
+          <div className="flex items-center gap-5 mb-5">
+            <div className="p-4 rounded-xl bg-purple-50 text-purple-600 shadow-sm group-hover:bg-purple-100 group-hover:scale-105 transition-all duration-300">
+              <Tool className="w-7 h-7" />
+            </div>
+            <h3 className="text-xl lg:text-2xl font-semibold text-gray-900">
+              Mantenimiento Preventivo
+            </h3>
+          </div>
+          <p className="text-gray-600 mb-5 text-lg leading-relaxed">
+            Programas personalizados para maximizar la vida útil, eficiencia y rendimiento de tus equipos.
+          </p>
+          <ul className="space-y-3 text-gray-700">
+            {[
+              "Limpieza profunda de componentes",
+              "Revisión de niveles y presión",
+              "Optimización del consumo energético"
+            ].map((item, i) => (
+              <li key={i} className="flex items-start">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-5 w-5 rounded-full bg-purple-100 text-purple-600">
+                    <Check className="h-3 w-3" />
+                  </div>
+                </div>
+                <span className="ml-3">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Tarjeta 3 */}
+      <div className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-50/30 via-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-400 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="relative z-10">
+          <div className="flex items-center gap-5 mb-5">
+            <div className="p-4 rounded-xl bg-pink-50 text-pink-600 shadow-sm group-hover:bg-pink-100 group-hover:scale-105 transition-all duration-300">
+              <Wrench className="w-7 h-7" />
+            </div>
+            <h3 className="text-xl lg:text-2xl font-semibold text-gray-900">
+              Reparación Especializada
+            </h3>
+          </div>
+          <p className="text-gray-600 mb-5 text-lg leading-relaxed">
+            Diagnósticos precisos y reparaciones con componentes originales y garantía de servicio.
+          </p>
+          <ul className="space-y-3 text-gray-700">
+            {[
+              "Diagnóstico gratuito sin compromiso",
+              "Técnicos certificados por fabricantes",
+              "Garantía en todas las reparaciones"
+            ].map((item, i) => (
+              <li key={i} className="flex items-start">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-5 w-5 rounded-full bg-pink-100 text-pink-600">
+                    <Check className="h-3 w-3" />
+                  </div>
+                </div>
+                <span className="ml-3">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</AnimatedSection>
 
         {/* About Us Section */}
         <AnimatedSection id="nosotros" className="relative py-24 bg-gradient-to-b from-gray-50 to-white">
@@ -165,7 +196,7 @@ export default function Home() {
                   Sobre Nosotros
                 </div>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-                  Más de 10 años de experiencia en climatización
+                  Más de 3 años de experiencia en climatización
                 </h2>
                 <div className="w-24 h-1.5 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full" />
                 <p className="text-lg text-gray-600">
@@ -184,14 +215,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md hover:shadow-lg transition-all duration-300">
-                    Conoce nuestro equipo
-                  </Button>
-                  <Button size="lg" variant="outline" className="border-gray-300 hover:bg-gray-50 transition-all duration-300">
-                    Ver certificaciones
-                  </Button>
-                </div>
+                
               </div>
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl border border-gray-200">
                 <Image
@@ -208,247 +232,201 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Why Choose Us */}
-        <AnimatedSection id="ventajas" className="py-20 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16 max-w-3xl mx-auto">
-              <div className="inline-flex items-center rounded-full bg-blue-700/30 px-4 py-2 text-sm font-medium text-blue-100 mb-6">
+        <AnimatedSection id="ventajas" className="relative py-28 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white overflow-hidden">
+          {/* Efecto de partículas/estrellas sutiles */}
+          <ParticlesEffect />
+  
+          <div className="container mx-auto px-6 relative z-10">
+            {/* Encabezado mejorado */}
+            <div className="text-center mb-20 max-w-4xl mx-auto">
+              <div className="inline-flex items-center rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white/90 mb-6 border border-white/20 backdrop-blur-sm shadow-sm hover:bg-white/15 transition-colors duration-300">
+                <Sparkles className="h-4 w-4 mr-2 text-blue-300" />
                 Nuestra ventaja competitiva
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-                ¿Por qué elegir Servisplit?
+              <h2 className="text-4xl sm:text-5xl md:text-[3.5rem] font-bold tracking-tight mb-6 leading-tight">
+                ¿Por qué elegir <span className="text-blue-300">Servisplit</span>?
               </h2>
-              <div className="w-24 h-1.5 bg-blue-400 mx-auto mt-6 rounded-full" />
-              <p className="mt-6 text-lg text-blue-100">
-                Nos distinguimos por nuestro compromiso con la excelencia y la satisfacción total del cliente
+              <div className="flex justify-center">
+                <div className="w-32 h-1.5 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full" />
+              </div>
+              <p className="mt-8 text-xl text-blue-100/90 max-w-3xl mx-auto leading-relaxed">
+                Nos distinguimos por nuestra <span className="font-semibold text-white">excelencia técnica</span> y un <span className="font-semibold text-white">compromiso absoluto</span> con la satisfacción del cliente
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Características mejoradas */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
               {[
                 {
-                  icon: <CheckCircle className="h-8 w-8" />,
+                  icon: <ShieldCheck className="h-7 w-7" />,
                   title: "Calidad Certificada",
-                  description: "Todos nuestros servicios incluyen garantía y utilizamos materiales de primera calidad.",
+                  description: "Garantía extendida en todos nuestros servicios con materiales premium y procesos certificados.",
+                  color: "text-blue-300"
                 },
                 {
-                  icon: <ThermometerSnowflake className="h-8 w-8" />,
+                  icon: <UserCheck className="h-7 w-7" />,
                   title: "Expertos Certificados",
-                  description: "Técnicos con certificación oficial y formación continua en las últimas tecnologías.",
+                  description: "Técnicos especializados con formación continua en las últimas tecnologías del mercado.",
+                  color: "text-teal-300"
                 },
                 {
-                  icon: <Clock className="h-8 w-8" />,
-                  title: "Respuesta Rápida",
-                  description: "Servicio de urgencias 24/7 con tiempos de respuesta mínimos.",
+                  icon: <Zap className="h-7 w-7" />,
+                  title: "Respuesta Inmediata",
+                  description: "Servicio de urgencias 24/7 con respuesta garantizada en menos de 2 horas.",
+                  color: "text-amber-300"
                 },
                 {
-                  icon: <Phone className="h-8 w-8" />,
-                  title: "Atención Personal",
-                  description: "Asesoramiento personalizado para encontrar la mejor solución a tu medida.",
+                  icon: <HeartHandshake className="h-7 w-7" />,
+                  title: "Atención Personalizada",
+                  description: "Soluciones customizadas con seguimiento post-venta y asesoramiento continuo.",
+                  color: "text-purple-300"
                 },
               ].map((feature, i) => (
-                <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-lg">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                <div 
+                  key={i} 
+                  className="relative group bg-gradient-to-b from-white/5 to-white/[0.03] rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 shadow-lg hover:shadow-xl overflow-hidden"
+                >
+                  {/* Efecto de hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Icono con fondo animado */}
+                  <div className={`relative z-10 mb-6 w-14 h-14 rounded-xl flex items-center justify-center bg-white/5 group-hover:bg-white/10 transition-colors duration-500 ${feature.color}`}>
+                    <div className="absolute inset-0 rounded-xl border border-white/10 group-hover:border-white/20 transition-colors duration-500" />
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-blue-100">{feature.description}</p>
+                  
+                  <h3 className="text-xl font-bold mb-3 relative z-10">{feature.title}</h3>
+                  <p className="text-blue-100/80 leading-relaxed relative z-10">{feature.description}</p>
+                  
+                  {/* Efecto de borde inferior */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${i === 0 ? 'from-blue-400 to-blue-600' : i === 1 ? 'from-teal-400 to-teal-600' : i === 2 ? 'from-amber-400 to-amber-600' : 'from-purple-400 to-purple-600'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 </div>
               ))}
+            </div>
+
+            {/* Efecto de marca de agua */}
+            <div className="absolute -bottom-20 -right-20 text-[15rem] font-bold opacity-5 pointer-events-none select-none">
+              SERVISPLIT
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Services Details */}
-        <AnimatedSection id="detalles" className="py-20 bg-gradient-to-b from-gray-50 to-white">
-          <div className="container mx-auto px-4 max-w-7xl">
-            <div className="text-center mb-16 max-w-3xl mx-auto">
-              <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 mb-6">
+        {/* Services Details - Minimalist */}
+        <AnimatedSection id="detalles" className="py-16 sm:py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="text-center mb-12 sm:mb-16">
+              <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 mb-4">
                 Detalles técnicos
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
                 Nuestros Servicios en Profundidad
               </h2>
-              <div className="w-24 h-1.5 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mt-6 rounded-full" />
-              <p className="mt-6 text-lg text-gray-600">
-                Conoce cada detalle de nuestros servicios profesionales de
-                climatización
+              <div className="w-20 h-1 bg-blue-500 mx-auto mt-4 rounded-full" />
+              <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                Conoce cada detalle de nuestros servicios profesionales de climatización.
               </p>
             </div>
 
-            <Tabs defaultValue="instalacion" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-100 p-2 rounded-xl">
-                {[
-                  {
-                    value: "instalacion",
-                    icon: <AirVent className="h-5 w-5 mr-2" />,
-                    label: "Instalación",
-                  },
-                  {
-                    value: "mantenimiento",
-                    icon: <Tool className="h-5 w-5 mr-2" />,
-                    label: "Mantenimiento",
-                  },
-                  {
-                    value: "reparacion",
-                    icon: <Wrench className="h-5 w-5 mr-2" />,
-                    label: "Reparación",
-                  },
-                ].map((tab, i) => (
-                  <TabsTrigger
-                    key={i}
-                    value={tab.value}
-                    className="data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-blue-600 rounded-lg py-3 transition-all"
-                  >
-                    {tab.icon}
-                    {tab.label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
+            {/* Stacked Service Details */}
+            <div className="space-y-12 sm:space-y-16">
 
-              {/* Installation Content */}
-              <TabsContent value="instalacion" className="mt-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div className="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-                    <Image
-                      src="/1.jpg"
-                      alt="Instalación profesional"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                  </div>
-                  <div className="space-y-6">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                      Instalación Profesional de Sistemas
-                    </h3>
-                    <p className="text-gray-600">
-                      Garantizamos una instalación perfecta desde el primer
-                      momento con nuestro servicio completo:
-                    </p>
-                    <ul className="space-y-4">
-                      {[
-                        "Asesoramiento técnico personalizado para seleccionar el equipo ideal",
-                        "Instalación certificada por técnicos cualificados",
-                        "Configuración óptima del sistema para máximo rendimiento",
-                        "Pruebas de funcionamiento exhaustivas",
-                        "Documentación técnica y garantía por escrito",
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <div className="bg-blue-100 p-1 rounded-full mt-0.5">
-                            <CheckCircle className="h-5 w-5 text-blue-600" />
-                          </div>
-                          <span className="text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      size="lg"
-                      className="mt-6 bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md"
-                    >
-                      <Phone className="h-5 w-5 mr-2" />
+              {/* Installation Details */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gray-50 p-6 sm:p-8 rounded-xl shadow-sm">
+                <div className="relative h-[200px] sm:h-[250px] rounded-lg overflow-hidden shadow-md">
+                  <Image
+                    src="/1.jpg"
+                    alt="Instalación profesional"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Instalación Profesional</h3>
+                  <p className="text-gray-600 text-base">
+                    Instalación certificada de sistemas split, multisplit y centralizados con máxima eficiencia.
+                  </p>
+                  <ul className="space-y-2 text-gray-700 text-sm">
+                    {[ "Configuración óptima", "Pruebas de funcionamiento", "Garantía en la instalación", ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="#contacto" passHref>
+                    <Button size="sm" className="mt-4 bg-blue-600 hover:bg-blue-700">
                       Solicitar Presupuesto
                     </Button>
-                  </div>
+                  </Link>
                 </div>
-              </TabsContent>
+              </div>
 
-              {/* Maintenance Content */}
-              <TabsContent value="mantenimiento" className="mt-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div className="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-xl border border-gray-200 order-last lg:order-first">
-                    <Image
-                      src="/2.jpg"
-                      alt="Mantenimiento preventivo"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                  </div>
-                  <div className="space-y-6">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                      Mantenimiento Preventivo Integral
-                    </h3>
-                    <p className="text-gray-600">
-                      Programa de mantenimiento diseñado para maximizar la vida
-                      útil y eficiencia de tus equipos:
-                    </p>
-                    <ul className="space-y-4">
-                      {[
-                        "Limpieza profunda de filtros y componentes internos",
-                        "Revisión de niveles de gas refrigerante y presión",
-                        "Comprobación del sistema eléctrico y electrónico",
-                        "Optimización del rendimiento energético",
-                        "Informe detallado del estado del equipo con recomendaciones",
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <div className="bg-blue-100 p-1 rounded-full mt-0.5">
-                            <CheckCircle className="h-5 w-5 text-blue-600" />
-                          </div>
-                          <span className="text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      size="lg"
-                      className="mt-6 bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md"
-                    >
-                      <Calendar className="h-5 w-5 mr-2" />
+              {/* Maintenance Details */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gray-50 p-6 sm:p-8 rounded-xl shadow-sm">
+                 <div className="relative h-[200px] sm:h-[250px] rounded-lg overflow-hidden shadow-md md:order-last">
+                  <Image
+                    src="/2.jpg"
+                    alt="Mantenimiento preventivo"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="space-y-4 md:order-first">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Mantenimiento Preventivo</h3>
+                  <p className="text-gray-600 text-base">
+                    Programas de mantenimiento para maximizar la vida útil y eficiencia de tus equipos.
+                  </p>
+                   <ul className="space-y-2 text-gray-700 text-sm">
+                    {[ "Limpieza profunda", "Revisión de gas refrigerante", "Optimización del rendimiento", ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-purple-500 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="#contacto" passHref>
+                    <Button size="sm" className="mt-4 bg-purple-600 hover:bg-purple-700">
                       Programar Mantenimiento
                     </Button>
-                  </div>
+                  </Link>
                 </div>
-              </TabsContent>
+              </div>
 
-              {/* Repair Content */}
-              <TabsContent value="reparacion" className="mt-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div className="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-                    <Image
-                      src="/3.jpg"
-                      alt="Reparación especializada"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                  </div>
-                  <div className="space-y-6">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                      Reparación Rápida y Garantizada
-                    </h3>
-                    <p className="text-gray-600">
-                      Solucionamos cualquier problema con tu equipo de
-                      climatización de forma profesional:
-                    </p>
-                    <ul className="space-y-4">
-                      {[
-                        "Diagnóstico preciso sin costo adicional",
-                        "Presupuesto claro y detallado sin compromiso",
-                        "Reparación realizada por técnicos certificados",
-                        "Uso exclusivo de repuestos originales con garantía",
-                        "Pruebas post-reparación y documentación técnica",
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <div className="bg-blue-100 p-1 rounded-full mt-0.5">
-                            <CheckCircle className="h-5 w-5 text-blue-600" />
-                          </div>
-                          <span className="text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      size="lg"
-                      className="mt-6 bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md"
-                    >
-                      <AlertCircle className="h-5 w-5 mr-2" />
+              {/* Repair Details */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gray-50 p-6 sm:p-8 rounded-xl shadow-sm">
+                 <div className="relative h-[200px] sm:h-[250px] rounded-lg overflow-hidden shadow-md">
+                  <Image
+                    src="/3.jpg"
+                    alt="Reparación especializada"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Reparación Especializada</h3>
+                  <p className="text-gray-600 text-base">
+                    Diagnóstico preciso y reparación de averías con repuestos originales y garantía.
+                  </p>
+                   <ul className="space-y-2 text-gray-700 text-sm">
+                    {[ "Diagnóstico sin costo", "Reparación con técnicos certificados", "Garantía en reparaciones", ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-pink-500 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="#contacto" passHref>
+                    <Button size="sm" className="mt-4 bg-pink-600 hover:bg-pink-700">
                       Solicitar Reparación
                     </Button>
-                  </div>
+                  </Link>
                 </div>
-              </TabsContent>
-            </Tabs>
+              </div>
+
+            </div>
           </div>
         </AnimatedSection>
 
@@ -592,3 +570,43 @@ export default function Home() {
     </div>
   );
 }
+
+// Componente separado para el efecto de partículas para manejar la hidratación
+const ParticlesEffect = () => {
+  const [particles, setParticles] = useState<Array<{ id: number, style: React.CSSProperties }>>([]);
+
+  useEffect(() => {
+    const generateParticles = () => {
+      const newParticles = [];
+      for (let i = 0; i < 20; i++) {
+        newParticles.push({
+          id: i,
+          style: {
+            width: `${Math.random() * 3 + 1}px`,
+            height: `${Math.random() * 3 + 1}px`,
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            animation: `twinkle ${Math.random() * 5 + 3}s infinite alternate`,
+          },
+        });
+      }
+      setParticles(newParticles);
+    };
+
+    generateParticles();
+  }, []); // Ejecutar solo una vez en el cliente
+
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-full opacity-10">
+        {particles.map(particle => (
+          <div
+            key={particle.id}
+            style={particle.style}
+            className="absolute rounded-full bg-white"
+          />
+        ))}
+      </div>
+    </div>
+  );
+};

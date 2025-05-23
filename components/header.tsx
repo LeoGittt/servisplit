@@ -35,7 +35,7 @@ export default function Header() {
             { href: "/", label: "Inicio", icon: <AirVent className="h-4 w-4" /> },
             { href: "#servicios", label: "Servicios", icon: <PenToolIcon className="h-4 w-4" /> },
             { href: "#nosotros", label: "Nosotros", icon: <Calendar className="h-4 w-4" /> },
-            { href: "#testimonios", label: "Testimonios", icon: <AlertCircle className="h-4 w-4" /> },
+            
             { href: "#contacto", label: "Contacto", icon: <Phone className="h-4 w-4" /> }
           ].map((item, index) => (
             <Link
@@ -111,7 +111,7 @@ export default function Header() {
                   { href: "/", label: "Inicio" },
                   { href: "#servicios", label: "Servicios" },
                   { href: "#nosotros", label: "Nosotros" },
-                  { href: "#testimonios", label: "Testimonios" },
+                  
                   { href: "#contacto", label: "Contacto" }
                 ].map((item) => (
                   <Link
