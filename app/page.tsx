@@ -33,11 +33,11 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-white">
       <Header />
       <main className="flex-1">
-        {/* Hero Section - Vercel-inspired gradient */}
+        
         <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 via-white to-blue-50">
           <div className="relative min-h-[600px] w-full flex items-center">
             <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between px-4 lg:px-8 gap-12">
-              {/* Text Content */}
+             
               <div className="w-full lg:w-1/2 py-16 text-center lg:text-left z-10 space-y-6">
                 <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 mb-4">
                   Expertos en climatización
@@ -76,7 +76,7 @@ export default function Home() {
               <div className="w-full lg:w-1/2 flex justify-center mb-12 lg:mb-0 relative">
                 <div className="relative w-full max-w-md h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-white/50 backdrop-blur-sm border border-gray-100">
                   <Image
-                    src="/technician-working.jpg"
+                    src="/aire.jpg"
                     alt="Técnico instalando aire acondicionado"
                     fill
                     className="object-cover rounded-3xl"
@@ -224,9 +224,9 @@ export default function Home() {
                 </p>
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   {[
-                    { value: "500+", label: "Clientes satisfechos" },
-                    { value: "10+", label: "Años de experiencia" },
-                    { value: "24/7", label: "Servicio de emergencia" },
+                    { value: "10+", label: "Clientes satisfechos" },
+                    { value: "3+", label: "Años de experiencia" },
+                    { value: "24/7", label: "Servicio de emergencia"},
                     { value: "100%", label: "Garantía en trabajos" },
                   ].map((stat, i) => (
                     <div
@@ -258,7 +258,7 @@ export default function Home() {
               </div>
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl border border-gray-200">
                 <Image
-                  src="/team-working.jpg"
+                  src="/airee.jpg"
                   alt="Equipo de Servisplit trabajando"
                   fill
                   className="object-cover"
@@ -383,7 +383,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div className="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-xl border border-gray-200">
                     <Image
-                      src="/installation.jpg"
+                      src="/1.jpg"
                       alt="Instalación profesional"
                       fill
                       className="object-cover"
@@ -431,7 +431,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div className="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-xl border border-gray-200 order-last lg:order-first">
                     <Image
-                      src="/maintenance.jpg"
+                      src="/2.jpg"
                       alt="Mantenimiento preventivo"
                       fill
                       className="object-cover"
@@ -479,7 +479,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div className="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-xl border border-gray-200">
                     <Image
-                      src="/repair.jpg"
+                      src="/3.jpg"
                       alt="Reparación especializada"
                       fill
                       className="object-cover"
@@ -525,25 +525,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        {/* Testimonials */}
-        <AnimatedSection className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16 max-w-3xl mx-auto">
-              <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 mb-6">
-                Testimonios
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-                Lo que dicen nuestros clientes
-              </h2>
-              <div className="w-24 h-1.5 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mt-6 rounded-full" />
-              <p className="mt-6 text-lg text-gray-600">
-                La satisfacción de nuestros clientes es nuestra mejor carta de
-                presentación
-              </p>
-            </div>
-            <TestimonialCarousel />
-          </div>
-        </AnimatedSection>
+       
 
         {/* Contact Section */}
         <AnimatedSection className="py-28 bg-gradient-to-br from-[#fefcff] via-[#f4f8ff] to-[#fff9f9]">
