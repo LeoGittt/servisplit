@@ -44,10 +44,10 @@ export default function WhatsAppButton() {
           <p className="text-gray-600 text-sm">Contáctenos por WhatsApp para una respuesta rápida.</p>
         </div>
       )}
-      <Link href="https://wa.me/34900123456" target="_blank" rel="noopener noreferrer" className="block">
+      <Link href="https://wa.me/+542644646434" target="_blank" rel="noopener noreferrer" className="block">
         <Button className="h-16 w-16 rounded-full bg-green-500 hover:bg-green-600 shadow-lg flex items-center justify-center animate-bounce-slow">
           <MessageSquare className="h-8 w-8" />
-          <span className="sr-only">Contactar por WhatsApp</span>
+          <span className="sr-only">Contactar con Servisplit por WhatsApp</span>
         </Button>
       </Link>
     </div>
