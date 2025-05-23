@@ -130,7 +130,7 @@ export default function Header() {
                   <div className="p-1.5 bg-blue-100 rounded-full">
                     <Phone className="h-4 w-4 text-blue-600" />
                   </div>
-                  <span className="text-lg font-medium text-gray-700">900 123 456</span>
+                  <span className="text-lg font-medium text-gray-700">+54 264 4646434</span>
                 </div>
                 <Button 
                   className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-6 text-lg shadow-lg hover:shadow-blue-500/20 transition-all"
