@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center text-sky-950 overflow-hidden"
+      className="relative py-20 sm:py-24 min-h-[70vh] flex items-center justify-center text-sky-950 overflow-hidden"
       style={{
         background: `
           linear-gradient(to right, rgba(191, 221, 255, 0.15) 1px, transparent 1px),
@@ -36,33 +36,29 @@ export default function Hero() {
         }}
       />
 
-      <div className="container px-6 relative z-10 text-center max-w-5xl">
+      <div className="container px-6 relative z-10 text-center max-w-5xl mx-auto">
         <motion.h1 
-          className="text-4xl sm:text-3xl md:text-6xl font-extrabold tracking-tight leading-tight text-sky-900"
+          className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-sky-900"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="block">Instalación profesional de</span>
-          <span className="relative inline-block mt-4">
-            <span className="relative z-10">
-              aires acondicionados{" "}
-              <span className="text-sky-600">split</span>
+          <span className="block">ServiSplit Climatización</span>
+          <span className="relative inline-block mt-2 sm:mt-4">
+            <span className="relative z-10 font-extrabold text-sky-600">
+              experta para tu espacio
             </span>
-            <span className="absolute bottom-2 left-0 w-full h-3 bg-sky-200/60 z-0"></span>
+            <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-sky-200/60 z-0"></span>
           </span>
-          <span className="block mt-2">y sistemas de <span className="text-sky-600">climatización</span></span>
         </motion.h1>
 
         <motion.p 
-          className="mt-8 text-xl text-sky-800/90 font-light max-w-3xl mx-auto leading-relaxed"
+          className="mt-6 sm:mt-8 text-base sm:text-lg text-sky-800/90 font-light max-w-xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          En <strong className="text-sky-900 font-medium">Servisplit</strong>{" "}
-          ofrecemos soluciones <span className="font-medium">personalizadas</span> con la máxima{" "}
-          <span className="font-medium">eficiencia energética</span> para hogares, oficinas y comercios.
+          Soluciones eficientes y personalizadas a tu alcance.
         </motion.p>
 
         <motion.div 
